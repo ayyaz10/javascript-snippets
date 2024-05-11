@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Images Loader</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    img {
+      width: 400px;
+      border: 2px solid rebeccapurple;
+      aspect-ratio: 16/9;
+      object-fit: contain;
+      /* height: auto; */
+    }
+    #my-bar {
+      width: 1%;
+      height: 20px;
+      background-color: #045faa;
+    }
+    #loader-percent {
+      color: white;
+    }
+  </style>
+  <body>
+    <div id="my-bar">
+      <div id="loader-percent"></div>
+    </div>
+    <div class="container">
+      <img
+        src="https://images.pexels.com/photos/21972309/pexels-photo-21972309/free-photo-of-a-girl-with-red-hair-and-a-guitar-sitting-on-a-wall.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/8512685/pexels-photo-8512685.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/8512406/pexels-photo-8512406.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/2114758/pexels-photo-2114758.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/2838787/pexels-photo-2838787.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/1763069/pexels-photo-1763069.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/1427368/pexels-photo-1427368.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/9010085/pexels-photo-9010085.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+      <img
+        src="https://images.pexels.com/photos/7803617/pexels-photo-7803617.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        width="300"
+        height="300"
+        alt=""
+      />
+    </div>
+
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script>
+      const start = performance.now();
+      // imagesLoaded(document.querySelector(".container"), function (i) {
+      //   console.log(i);
+      //   console.log("all iamges are loaded");
+      // });
+      // console.log(imageLoaded);
+
+      const imgLoad = imagesLoaded(
+        document.querySelector(".container"),
+        onImagesLoaded
+      );
+      const numImages = imgLoad.images.length;
+
+      imgLoad.on("progress", (i, image) => {
+        const result = image.isLoaded ? "loaded" : "broken";
+
+        console.log(
+          `image ${i.progressedCount} out of ${numImages} is ${result}`
+        );
+
+        const progress = i.progressedCount / numImages;
+        const progressPercentage = `${Math.round(progress * 100)}%`;
+        document.querySelector("#my-bar").style.width = progressPercentage;
+        document.querySelector("#loader-percent").textContent =
+          progressPercentage;
+      });
+
+      function onImagesLoaded() {
+        const end = performance.now();
+        console.log(
+          `Time taken to load ${numImages} images: ${Math.round(end - start)}ms`
+        );
+      }
+    </script>
+  </body>
+</html>
+
+<!-- success is something you attract, not something you persue, not something by becoming attracttive. You can have more than you hve got because you cane become more than you are. multiple skills, mutiple languagues. mutiply your value to 3 to 5 then you can mutipley you income to 3 to 5. there is aonly about 10 or 11 nasty people. You are bound find 1 once in a while. If you found one you can say there are 10 left, they are not a lot I can handle it. -->

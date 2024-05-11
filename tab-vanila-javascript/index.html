@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <div class="custom-portfolio-container">
+        <div class="custom-portfolio-title-container">
+            <div class="custom-portfolio-title custom-portfolio-title-1 selected tablinks" onclick="openTab(event, 'All')" data-value=".All">All Projects</div>
+            <div class="custom-portfolio-title custom-portfolio-title-2 tablinks" onclick="openTab(event, 'Graphic')"  data-value=".Graphic">Graphic Design</div>
+            <div class="custom-portfolio-title custom-portfolio-title-3 tablinks" onclick="openTab(event, 'Web')"  data-value=".Web">Web Development</div>
+            <div class="custom-portfolio-title custom-portfolio-title-4 tablinks" onclick="openTab(event, 'Digital')"  data-value=".Digital">Digital Marketing</div>
+        </div>
+        <div class="custom-portfolio-content-container">
+            <div class="custom-portfolio-content custom-portfolio-content-1 tabcontent" id="All">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+            <div class="custom-portfolio-content custom-portfolio-content-2 tabcontent" id="Graphic">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+            <div class="custom-portfolio-content custom-portfolio-content-3 tabcontent" id="Web">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+            <div class="custom-portfolio-content custom-portfolio-content-4 tabcontent" id="Digital">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // $(document).ready(function(){
+        //     $('custom-portfolio-content:first').show();
+        //     $('custom-portfolio-title:first').addClass('selected');
+
+        //     $(".custom-portfolio-title").click(function(){
+        //        index = $(this).index();
+        //        $('.custom-portfolio-title').removeClass('selected');
+        //        $(this).addClass('selected');
+        //        $('custom-portfolio-content').hide();
+        //        $('custom-portfolio-content').eq(index).show();
+        //     });
+        // });
+        // $(document).ready(function(){
+        //     $(".custom-portfolio-title").click(function(){
+        //         $(this).addClass('selected').siblings().removeClass("selected");
+        //         $(".custom-portfolio-content-container > .custom-portfolio-content").hide();
+        //         $($(this).data("value")).fadeIn();
+        //     });
+        // });
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" selected", "");
+            }
+            document.getElementById(tabName).style.display = "flex";
+            evt.currentTarget.className += " selected";
+        }
+    </script>
+</body>
+</html>
